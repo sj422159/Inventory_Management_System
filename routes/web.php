@@ -6,7 +6,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -27,6 +27,11 @@ Route::get('/purchase-products/{id}', [ProductController::class,'purchaseData'])
 
 Route::post('/insert-purchase-products',[ProductController::class,'storePurchase'])->middleware(['auth']);
 
+
+Route::get('/test-log', function () {
+    Log::error('✅ Log test successful.');
+    return 'Log written!';
+});
 
 //invoice
 Route::get('/add-invoice/{id}', [InvoiceController::class,'formData'])->middleware(['auth']);
