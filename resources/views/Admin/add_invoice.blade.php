@@ -17,8 +17,8 @@
                         <label class="small mb-1" for="inputFirstName">Customer Name</label>
                       @if(isset($customer) && $customer->name)
     <input class="form-control py-4" name="customer" type="text" value="{{ $customer->name }}" />
-@elseif(isset($order) && $order->email)
-    <input class="form-control py-4" name="customer" type="text" value="{{ $order->email }}" />
+@elseif(isset($order) && $order->name)
+    <input class="form-control py-4" name="customer" type="text" value="{{ $order->name }}" />
 @else
     <input class="form-control py-4" name="customer" type="text" value="Unknown Customer" />
 @endif
@@ -71,7 +71,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Price (perUnit)</label>
-                        <input class="form-control py-4" name="unit_price" type="text" value="{{ $product->unit_price }}" />
+                        <input class="form-control py-4" name="unit_price" type="text" value="{{ $product->sales_unit_price }}" />
                     </div>
                 </div>
                 
@@ -85,7 +85,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="small mb-1" for="inputLastName">Total Price</label>
-                        <input class="form-control py-4" name="total" type="text" value="{{ $product->unit_price * $order->quantity }}" />
+                        <input class="form-control py-4" name="total" type="text" value="{{ $product->sales_unit_price * $order->quantity }}" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -95,12 +95,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="small mb-1" for="inputLastName">Gallery</label>
-                        <input name="photo" type="file" />
-                    </div>
-                </div> -->
             </div>
 
             <div class="form-group mt-4 mb-0"><button class="btn btn-primary btn-block">Submit</button></div>

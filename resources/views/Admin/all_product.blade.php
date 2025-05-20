@@ -1,4 +1,5 @@
 @extends('layouts.admin_master')
+
 @section('content')
 <div class="card mb-4">
     <div class="card-header">
@@ -7,6 +8,8 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
+          <a href="{{ route('add.product') }}" class="btn btn-success">New Product</a>
+
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>

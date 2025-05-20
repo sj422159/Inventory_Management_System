@@ -1,4 +1,4 @@
-Products<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -12,20 +12,67 @@ Products<!DOCTYPE html>
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css ">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
+    <style>
+/* Dark Mode Body */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Card styling */
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #ffffff;
+}
+
+/* Card header */
+body.dark-mode .card-header {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+/* Canvas background */
+body.dark-mode canvas {
+  background-color: #1a1a1a;
+}
+
+/* Button & link adjustments */
+body.dark-mode .btn {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+body.dark-mode a {
+  color: #ccc;
+}
+
+/* Make all text white */
+body.dark-mode *, 
+body.dark-mode .text-dark {
+  color: #ffffff !important;
+}
+</style>
+
+
+
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand">Inventory Management</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
+           
+
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
+                
             </form>
+             <button id="toggleModeBtn" class="btn btn-sm btn-light m-3">
+  <i id="modeIcon" class="fas fa-moon"></i>
+</button>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -62,7 +109,7 @@ Products<!DOCTYPE html>
                             </a>
                             <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('add.product') }}">New Product</a>
+                                 
                                     <a class="nav-link" href="{{ route('all.product') }}">Stock Report</a>
                                     <a class="nav-link" href="{{ route('available.products') }}">Available Products</a>
                                 </nav>
@@ -134,7 +181,7 @@ Products<!DOCTYPE html>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Shakil Ahmed, Ekram Asif & Safana Quyum Chowdhury</div>
+                            <div class="text-muted">Copyright &copy; Swapnajit </div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -172,6 +219,37 @@ Products<!DOCTYPE html>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
+           <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('toggleModeBtn');
+  const modeIcon = document.getElementById('modeIcon');
+
+  // Check localStorage and apply saved mode
+  if (localStorage.getItem('dark-mode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    modeIcon.classList.remove('fa-moon');
+    modeIcon.classList.add('fa-sun');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    const darkModeEnabled = document.body.classList.contains('dark-mode');
+
+    // Update icon
+    if (darkModeEnabled) {
+      modeIcon.classList.remove('fa-moon');
+      modeIcon.classList.add('fa-sun');
+      localStorage.setItem('dark-mode', 'enabled');
+    } else {
+      modeIcon.classList.remove('fa-sun');
+      modeIcon.classList.add('fa-moon');
+      localStorage.setItem('dark-mode', 'disabled');
+    }
+  });
+});
+</script>
+
 
         @yield('script')
     </body>

@@ -114,8 +114,8 @@
 								</td>
 
 								<td>
-									Invoice #: {{$data->id }}<br />
-									Created: {{$data->created_at }}<br />
+									Invoice : {{$data->id }}<br />
+									Created: {{ \Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}<br />
 								</td>
 							</tr>
 						</table>
@@ -156,10 +156,7 @@
 					<td>Product Quantity</td>
 					<td>{{ $data->quantity }}</td>
 				</tr>
-				<tr class="item">
-					<td>Unit price</td>
-					<td>{{ $data->price }}</td>
-				</tr>
+				
 				<tr class="item">
 					<td>Total price</td>
 					<td>{{ $data->total }}</td>
