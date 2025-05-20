@@ -2,9 +2,12 @@ name: laravel-app
 
 engines:
   php: "8.2"
+  nodejs: "18"
 
 buildCommand: |
   composer install --optimize-autoloader --no-dev
+  npm install
+  npm run production
 
 startCommand: |
   php -S 0.0.0.0:8000 -t public
