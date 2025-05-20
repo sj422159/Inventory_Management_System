@@ -12,11 +12,14 @@
         }
     ],
     "require-dev": {
-        "facade/ignition": "^2.17"
+        "facade/ignition": "^2.17",
+        "nunomaduro/collision": "^5.11",
+        "laravel/sail": "^1.25"
     },
     "require": {
         "laravel/framework": "^8.83",
         "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^3.0"
+        "fruitcake/laravel-cors": "^3.0",
+        "laravel/tinker": "^2.10"
     }
 }
