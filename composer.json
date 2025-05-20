@@ -1,10 +1,10 @@
 {
     "name": "hp/public_html_laravel",
     "autoload": {
-        "psr-4": {
-            "Hp\\PublicHtmlLaravel\\": "src/"
-        }
-    },
+    "psr-4": {
+        "App\\": "app/"
+    }
+},
     "authors": [
         {
             "name": "Swapnajit Sahoo",
