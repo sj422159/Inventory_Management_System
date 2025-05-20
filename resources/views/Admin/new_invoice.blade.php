@@ -162,7 +162,7 @@ $(document).ready(function(){
         console.log(c_name);
         $.ajax({
             type: 'POST',
-            url: "http://127.0.0.1:8000/api/get-customer",
+            url: "https://127.0.0.1:8000/api/get-customer",
             dataType: 'json',
             data: {
                 "id" : c_name
