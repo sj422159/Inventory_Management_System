@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
