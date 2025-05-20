@@ -60,7 +60,7 @@
     </div>
 
     <!-- JS -->
-    <script src="{{ asset('frontend') }}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/main.js"></script>
+    <script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/main.js') }}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
