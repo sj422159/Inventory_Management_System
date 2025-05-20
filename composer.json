@@ -11,5 +11,7 @@
             "email": "sj422159@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "facade/ignition": "^2.17"
+    }
 }
