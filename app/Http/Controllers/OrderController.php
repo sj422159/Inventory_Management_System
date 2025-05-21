@@ -10,6 +10,7 @@ use App\Models\Customer;
 class OrderController extends Controller
 {
     public function store(Request $request){
+      
     	
     	$data=new Order;
     	$data->name= $request->email;
@@ -22,7 +23,7 @@ class OrderController extends Controller
     	
     }
      public function newStore(Request $request){
-        
+        dd($request->all());
         $data=new Order;
         $data->name= $request->email;
         $data->product_code = $request->code;
