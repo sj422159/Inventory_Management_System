@@ -15,19 +15,24 @@ class InvoiceController extends Controller
 {
     public function store(Request $request){
     	
-    	$data=new Invoice;
-        $data->customer_name= $request->customer;
-    	$data->customer_mail= $request->email;
-        $data->company = $request->company;
-        $data->address = $request->address;
-        $data->item = $request->item;
-    	$data->product_name = $request->name;
-    	$data->price = $request->sale_price;
-    	$data->quantity = $request->quantity;
-        $data->total = $request->total;
-        $data->payment = $request->payment;
-        $data->due = $request->total - $request->payment;
-        $data->save();
+$data = new Invoice;
+
+$data->customer_name = $request->customer ?? 'NA';
+$data->customer_mail = $request->email ?? 'NA';
+$data->company       = $request->company ?? 'NA';
+$data->address       = $request->address ?? 'NA';
+$data->item          = $request->item ?? 'NA';
+$data->product_name  = $request->name ?? 'NA';
+$data->price         = $request->sale_price ?? 0;
+$data->quantity      = $request->quantity ?? 0;
+$data->total         = $request->total ?? 0;
+$data->payment       = $request->payment ?? 0;
+
+// Calculate due based on total and payment, ensuring defaults
+$data->due = ($request->total ?? 0) - ($request->payment ?? 0);
+
+$data->save();
+
 
         //order_track
         $productCode = Product::where('name',$request->name)->first();
@@ -42,13 +47,16 @@ class InvoiceController extends Controller
         //customer_track
         $customer = Customer::where('email', '=', $request->email)->first();
         if($customer === null){
-            $data3=new Customer;
-            $data3->name= $request->customer;
-            $data3->email= $request->email;
-            $data3->company = $request->company;
-            $data3->address = $request->address;
-            $data3->phone = $request->phone;
-            $data3->save();
+           $data3 = new Customer;
+
+$data3->name    = $request->customer ?? 'NA';
+$data3->email = $request->email ?? 'na_' . uniqid() . '@example.com';
+$data3->company = $request->company ?? 'NA';
+$data3->address = $request->address ?? 'NA';
+$data3->phone   = $request->phone ?? '0'; // or 'NA' if phone is string
+
+$data3->save();
+
         }
 
         $products = DB::table('products')->where('category',$request->item)->first();

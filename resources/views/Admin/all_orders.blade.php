@@ -13,7 +13,7 @@
                         <th>Order Id</th>
                         <th>Product Code</th>
                         <th>Product Name</th>
-                        <th>Customer Email</th>
+                        <th>Customer name</th>
                         <th>Quantity</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -26,7 +26,7 @@
                         <td>{{ $row->id }}</td>
                         <td>{{ $row->product_code }}</td>
                         <td>{{ $row->product_name }}</td>
-                        <td>{{ $row->email }}</td>
+                        <td>{{ $row->name }}</td>
                         <td>{{ $row->quantity }}</td>
                         <td>
                             @if($row->order_status=='0')
