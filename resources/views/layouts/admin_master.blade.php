@@ -17,45 +17,92 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <style>
-/* Dark Mode Body */
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-/* Card styling */
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  border-color: #333;
-  color: #ffffff;
-}
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
 
-/* Card header */
-body.dark-mode .card-header {
-  background-color: #2c2c2c;
-  color: #ffffff;
-}
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
 
-/* Canvas background */
-body.dark-mode canvas {
-  background-color: #1a1a1a;
-}
+        body.dark-mode .card {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
 
-/* Button & link adjustments */
-body.dark-mode .btn {
-  background-color: #444 !important;
-  color: #fff !important;
-}
-body.dark-mode a {
-  color: #ccc;
-}
+        body.dark-mode .card-header {
+            background-color: #2c2c2c;
+        }
 
-/* Make all text white */
-body.dark-mode *, 
-body.dark-mode .text-dark {
-  color: #ffffff !important;
-}
-</style>
+        body.dark-mode .navbar,
+        body.dark-mode .sb-sidenav {
+            background-color: #1f1f1f !important;
+        }
+
+        body.dark-mode .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0;
+            right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; width: 16px;
+            left: 2px; bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+        }
+
+        body.dark-mode .footer {
+            background-color: #222;
+            color: #ccc;
+        }
+    </style>
 
 
 
