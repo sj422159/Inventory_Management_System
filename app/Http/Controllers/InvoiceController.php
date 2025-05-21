@@ -56,7 +56,7 @@ class InvoiceController extends Controller
         $nowqty = $mainqty - $request->quantity;
 
         DB::table('products')->where('name',$request->name)->update(['stock' => $nowqty]);
-        Order::where('cname',$request->name)->update(['order_status'=>'1']);
+        Order::where('name',$request->name)->update(['order_status'=>'1']);
 
         return view('Admin.invoice_details',compact('data'));
 
