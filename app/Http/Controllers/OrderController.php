@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function store(Request $request){
     	
     	$data=new Order;
-    	$data->name= $request->email;
+    	$data->cname= $request->email;
         $data->product_code = $request->code;
         $data->product_name = $request->name;
         $data->quantity = $request->quantity;

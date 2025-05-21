@@ -16,94 +16,183 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css ">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+<style>
+    /* Base Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
 
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
+    /* Dark Mode Background */
+    body.dark-mode {
+        background-color: #0d0d0d;
+        color: #ffffff;
+    }
 
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
+    /* Card Styling (Light & Dark) */
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: none;
+    }
 
-        body.dark-mode .card {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
+    body.dark-mode .card {
+        background: rgba(30, 30, 30, 0.8); /* Glassy look */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
 
-        body.dark-mode .card-header {
-            background-color: #2c2c2c;
-        }
+    body.dark-mode .card-header {
+        background-color: rgba(44, 44, 44, 0.7);
+        color: #00f7ff;
+        text-shadow: 0 0 5px #00f7ff;
+    }
 
-        body.dark-mode .navbar,
-        body.dark-mode .sb-sidenav {
-            background-color: #1f1f1f !important;
-        }
+    /* Navbar & Sidebar */
+    body.dark-mode .navbar,
+    body.dark-mode .sb-sidenav {
+        background-color: #1a1a1a !important;
+    }
 
-        body.dark-mode .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
+    body.dark-mode .nav-link {
+        color: rgba(255, 255, 255, 0.7);
+    }
 
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 20px;
-        }
+    body.dark-mode .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #00f7ff;
+    }
 
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+    /* Neon Text Classes */
+    .neon-text-blue {
+        color: #00f7ff;
+        text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+    }
 
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0;
-            right: 0; bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
+    .neon-text-green {
+        color: #39ff14;
+        text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+    }
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px; width: 16px;
-            left: 2px; bottom: 2px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
+    .neon-text-pink {
+        color: #ff1aff;
+        text-shadow: 0 0 5px #ff1aff, 0 0 10px #ff1aff, 0 0 20px #ff1aff;
+    }
 
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
+    /* Buttons with Glow in Dark Mode */
+    body.dark-mode .btn-primary {
+        background-color: #00f7ff;
+        color: #000;
+        box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+        transition: all 0.3s ease;
+    }
 
-        input:checked + .slider:before {
-            transform: translateX(20px);
-        }
+    body.dark-mode .btn-success {
+        background-color: #39ff14;
+        color: #000;
+        box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+    }
 
-        .footer {
-            background-color: #f1f1f1;
-        }
+    body.dark-mode .btn-danger {
+        background-color: #ff1aff;
+        color: #000;
+        box-shadow: 0 0 10px #ff1aff, 0 0 20px #ff1aff;
+    }
 
-        body.dark-mode .footer {
-            background-color: #222;
-            color: #ccc;
-        }
-    </style>
+    /* Button Hover Glow */
+    body.dark-mode .btn:hover {
+        filter: brightness(1.1);
+    }
 
+    /* Table Styling in Dark Mode */
+    body.dark-mode .table {
+        color: #fff;
+    }
+
+    body.dark-mode .table thead {
+        background-color: #2c2c2c;
+        color: #00f7ff;
+    }
+
+    body.dark-mode .table tbody tr {
+        background-color: #222;
+    }
+
+    /* Icons Glow in Dark Mode */
+    body.dark-mode .fas,
+    body.dark-mode .far,
+    body.dark-mode .fab {
+        color: #00f7ff;
+        text-shadow: 0 0 5px #00f7ff;
+    }
+
+    /* Toggle Switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0; left: 0;
+        right: 0; bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(20px);
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #f1f1f1;
+        color: #333;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    body.dark-mode .footer {
+        background-color: #1e1e1e;
+        color: #ccc;
+    }
+
+    body.dark-mode .footer a {
+        color: #00f7ff;
+        text-decoration: underline;
+    }
+</style>
 
 
 
