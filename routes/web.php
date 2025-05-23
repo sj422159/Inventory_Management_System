@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Log;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/forget', function () {
+    return view('auth.login');
+});
 
 //product
 Route::get('/add-product', function () {
@@ -27,12 +30,6 @@ Route::get('/available-products',[ProductController::class,'availableProducts'])
 Route::get('/purchase-products/{id}', [ProductController::class,'purchaseData'])->middleware(['auth']);
 
 Route::post('/insert-purchase-products',[ProductController::class,'storePurchase'])->middleware(['auth']);
-
-
-Route::get('/test-log', function () {
-    Log::error('✅ Log test successful.');
-    return 'Log written!';
-});
 
 //invoice
 Route::get('/add-invoice/{id}', [InvoiceController::class,'formData'])->middleware(['auth']);
