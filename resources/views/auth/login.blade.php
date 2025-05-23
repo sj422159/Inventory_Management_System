@@ -208,6 +208,12 @@
                             @enderror
                         </div>
 
+                        <!-- In your login or registration form -->
+<div style="display: none;">
+    <label for="website">Enter Your Website:</label>
+    <input type="text" name="website" id="website" />
+</div>
+
                         <!-- Remember Me -->
                         <div class="form-group">
                             <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

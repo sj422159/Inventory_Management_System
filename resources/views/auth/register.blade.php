@@ -39,6 +39,11 @@
                                 <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm your password" required=""/>
                             </div>
+                            <!-- In your login or registration form -->
+<div style="display: none;">
+    <label for="website">Leave this field blank:</label>
+    <input type="text" name="website" id="website" />
+</div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>

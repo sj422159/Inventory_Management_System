@@ -26,14 +26,34 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
-    {
-        $request->authenticate();
 
-        $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+public function store(LoginRequest $request)
+{
+    // Get raw input for honeypot check
+    $website = $request->input('website');
+
+    // If honeypot field has a value, assume it's a bot
+    if (!empty($website)) {
+        // Optional: Log the attempt
+        \Log::warning("Bot detected on login attempt", [
+            'ip' => $request->ip(),
+            'email' => $request->email,
+            'filled_website' => $website,
+        ]);
+
+        // Redirect back with error
+        return back()->withErrors([
+            'email' => 'Bot detected. Please try again.',
+        ]);
     }
+
+    // Proceed with authentication
+    $request->authenticate();
+    $request->session()->regenerate();
+
+    return redirect()->intended(RouteServiceProvider::HOME);
+}
 
     /**
      * Destroy an authenticated session.
